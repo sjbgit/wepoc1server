@@ -111,10 +111,16 @@
                   <!-- <p class="help-block">help</p> -->
                 </div>
               </div>
-              <uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
+              <!--<uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>-->
 
-              <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>
-              </fieldset>
+              <div class="form-group">
+                <label class="control-label col-sm-2"></label>
+                <div class="text-left col-sm-10">
+                    <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>
+                </div>
+              </div>
+
+               </fieldset>
               </form>
 
              <!--    {{selectedDeck.title}}
