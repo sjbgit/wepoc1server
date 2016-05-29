@@ -1,9 +1,6 @@
 // grab the things we need
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-//https://www.npmjs.com/package/mongoose-currency
-require('mongoose-currency').loadType(mongoose);
-var Currency = mongoose.Types.Currency;
 
 var noteSchema = new Schema({
     // rating:  {

@@ -2,9 +2,6 @@
 //http://stackoverflow.com/questions/21664420/array-of-string-in-a-schema-mongoose
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-//https://www.npmjs.com/package/mongoose-currency
-require('mongoose-currency').loadType(mongoose);
-var Currency = mongoose.Types.Currency;
 
 var answerSchema = new Schema({
     content:  {
