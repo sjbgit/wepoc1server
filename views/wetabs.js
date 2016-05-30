@@ -104,7 +104,7 @@ angular.module('ui.bootstrap.demo').controller('TabsDemoCtrl', function ($scope,
     slides.push({
       //image: 'http://lorempixel.com/' + newWidth + '/300',
       image: './notes_pic.JPG',
-      text: ['Nice image','Awesome photograph','That is so cool','I love that'][slides.length % 4],
+      text: ['Test1','Test2','Test3','Test4'][slides.length % 4],
       id: currIndex++
     });
   };
