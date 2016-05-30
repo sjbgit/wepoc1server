@@ -1,7 +1,7 @@
 angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap', 'ngResource']);
 angular.module('ui.bootstrap.demo').controller('TabsDemoCtrl', function ($scope, $window, testFactory) {
 
-   $scope.totalItems = 64;
+  $scope.totalItems = 64;
   $scope.currentPage = 4;
 
   $scope.setPage = function (pageNo) {
@@ -91,6 +91,28 @@ angular.module('ui.bootstrap.demo').controller('TabsDemoCtrl', function ($scope,
   $scope.model = {
     name: 'Tabs'
   };
+  
+  
+  
+  ///////////////////////////////// CAROUSEL ///////////////////////////////////
+  $scope.active = 0;
+  var slides = $scope.slides = [];
+  var currIndex = 0;
+
+  $scope.addSlide = function() {
+    var newWidth = 600 + slides.length + 1;
+    slides.push({
+      //image: 'http://lorempixel.com/' + newWidth + '/300',
+      image: './notes_pic.JPG',
+      text: ['Nice image','Awesome photograph','That is so cool','I love that'][slides.length % 4],
+      id: currIndex++
+    });
+  };
+  
+  for (var i = 0; i < 4; i++) {
+    $scope.addSlide();
+  }
+  ////////////////////////////// END CAROUSEL ////////////////////////////////////
 });
 
 angular.module('ui.bootstrap.demo')
