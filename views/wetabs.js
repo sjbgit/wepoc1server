@@ -113,6 +113,26 @@ angular.module('ui.bootstrap.demo').controller('TabsDemoCtrl', function ($scope,
     $scope.addSlide();
   }
   ////////////////////////////// END CAROUSEL ////////////////////////////////////
+  
+  ////////////////////////////// QUIZ ///////////////////////////////////////////
+  
+  $scope.currentQuiz = {
+    questions: [
+      {
+        content: 'First quiz question',
+        answers: [
+          { content: 'First answer', explanation: 'Expain why this is correct', isCorrect: true },
+			    { content: 'Second answer', explanation: 'Explain why this is incorrect', isCorrect: false },
+          //{ content: 'Third answer', explanation: 'Explain why this is incorrect', isCorrect: false },
+        ]
+        
+      }
+    ]
+  };
+  
+  $scope.currentQuestion = $scope.currentQuiz.questions[0];
+  
+  ///////////////////////////////////////////////////////////////////////////////
 });
 
 angular.module('ui.bootstrap.demo')
