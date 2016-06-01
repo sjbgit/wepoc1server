@@ -1,8 +1,16 @@
 angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap', 'ngResource']);
-angular.module('ui.bootstrap.demo').controller('TabsDemoCtrl', function ($scope, $window, testFactory) {
+angular.module('ui.bootstrap.demo').controller('TabsDemoCtrl', function ($scope, $window, testFactory, flashCardFactory) {
 
   $scope.totalItems = 64;
   $scope.currentPage = 4;
+  
+  //$scope.testDecks = flashCardFactory.query();
+var query = flashCardFactory.query();
+query.$promise.then(function(data) {
+     $scope.testDecks = data;
+     console.log($scope.testDecks);
+     // Do whatever when the request is finished
+});
 
   $scope.setPage = function (pageNo) {
     $scope.currentPage = pageNo;
@@ -137,9 +145,18 @@ angular.module('ui.bootstrap.demo').controller('TabsDemoCtrl', function ($scope,
 
 angular.module('ui.bootstrap.demo')
     //https://devdactic.com/improving-rest-with-ngresource/
-        .constant("baseURL", 'http://jsonplaceholder.typicode.com/users/:user') //"http://localhost:3000/")
+        .constant("test_baseURL", 'http://jsonplaceholder.typicode.com/users/:user') //"http://localhost:3000/")
+        .constant("baseURL", 'http://localhost:3000/')
         .factory('testFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
           var data = $resource('http://jsonplaceholder.typicode.com/users/:user', {user: '@user'}, {
+          update:{
+            method:'PUT'
+          }
+        });
+        return data;
+      }])
+      .factory('flashCardFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
+          var data = $resource(baseURL + 'flashCards/:deckId', {deckId: '@deckId'}, {
           update:{
             method:'PUT'
           }
