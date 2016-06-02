@@ -1,14 +1,34 @@
 angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap', 'ngResource']);
-angular.module('ui.bootstrap.demo').controller('TabsDemoCtrl', function ($scope, $window, testFactory, flashCardFactory) {
+angular.module('ui.bootstrap.demo').controller('TabsDemoCtrl', function ($scope, $window, testFactory, flashCardFactory, notesFactory, quizFactory) {
 
   $scope.totalItems = 64;
   $scope.currentPage = 4;
+  
+  $scope.notes = [];
   
   //$scope.testDecks = flashCardFactory.query();
 var query = flashCardFactory.query();
 query.$promise.then(function(data) {
      $scope.testDecks = data;
      console.log($scope.testDecks);
+     
+     $scope.decks = data;
+     //$scope.decks.unshift(data);
+     // Do whatever when the request is finished
+});
+
+var nquery = notesFactory.query();
+nquery.$promise.then(function(data) {
+     $scope.testNotes = data;
+     console.log($scope.testNotes);
+     $scope.notes = data;
+     // Do whatever when the request is finished
+});
+
+var qquery = quizFactory.query();
+qquery.$promise.then(function(data) {
+     $scope.testQuizzes = data;
+     console.log($scope.testQuizzes);
      // Do whatever when the request is finished
 });
 
@@ -34,6 +54,11 @@ query.$promise.then(function(data) {
   $scope.setSelectedDeck = function(deck) {
     $scope.selectedDeck = deck;
     $scope.currentCard = deck.cards && deck.cards.length > 0 ? deck.cards[0] : {};
+  }
+  
+  $scope.setSelectedNote = function(note) {
+    $scope.selectedNote = note;
+    $scope.currentNote = note.notes && note.notes.length > 0 ? note.notes[0] : {};
   }
 
   $scope.decks = [
@@ -157,6 +182,22 @@ angular.module('ui.bootstrap.demo')
       }])
       .factory('flashCardFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
           var data = $resource(baseURL + 'flashCards/:deckId', {deckId: '@deckId'}, {
+          update:{
+            method:'PUT'
+          }
+        });
+        return data;
+      }])
+      .factory('notesFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
+          var data = $resource(baseURL + 'notes/:noteId', {deckId: '@noteId'}, {
+          update:{
+            method:'PUT'
+          }
+        });
+        return data;
+      }])
+      .factory('quizFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
+          var data = $resource(baseURL + 'quizzes/:quizId', {quizId: '@quizId'}, {
           update:{
             method:'PUT'
           }
