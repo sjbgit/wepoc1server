@@ -1,0 +1,41 @@
+.block-sm-sidenav:hover {
+    text-decoration: none;
+    /*color: #3f67ca;*/
+    /*background-color: rgba(0,0,0,0.15);*/
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.block-sm-sidenav {
+    display: block;
+    width: 100%;
+    box-shadow: 2px 2px 2px rgba(208, 32, 32, .1);
+    border: 1px solid #c4c4c4;
+    background: #fff;
+    border-radius: 3px;
+    padding: 0 5px;
+    margin: 5px auto;
+    text-align: left;
+    padding-left: 14px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    line-height: 40px;
+    transition: .3s;
+    overflow: hidden;
+}
+
+#notes_carousel {
+  height: 200px;
+}
+
+.note_carousel_images {
+    height: 200px;
+}
+
+.move_down{
+    margin-top: 0px;
+}
