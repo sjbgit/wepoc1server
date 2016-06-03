@@ -18,7 +18,7 @@
   }
 </style>
 
-<div ng-controller="TabsDemoCtrl">
+<div>
   <!-- <p>Select a tab by setting active binding to true:</p>
   <p>
     <button type="button" class="btn btn-default btn-sm" ng-click="active = 1">Select second tab</button>
@@ -52,8 +52,8 @@
   <hr /> -->
 
   <uib-tabset active="activeJustified" justified="true">
-    <uib-tab index="0" heading="Flash Cards">
-      <div class="container">
+    <uib-tab index="0" heading="Flash Cards" >
+      <div class="container" ng-controller="FlashCardsCtrl" >
           <div class="row row-content">
             <div class="col-xs-12 col-sm-3">
                 <div class="list-group" ng-repeat="deck in decks">
@@ -236,12 +236,19 @@
 
     </uib-tab>
     <uib-tab index="1" heading="Notes">
-         <div class="container">
+         <div class="container"  ng-controller="NotesCtrl">
           <div class="row row-content">
-            <div class="col-xs-12 col-sm-3">
+            <div class="col-xs-12 col-sm-3 ">
+                <!--<div class="list-group" ng-repeat="note in notes">
+                  <button type="button" class="list-group-item block-sm-sidenav"  ng-click="setSelectedNote(note)">{{note.title}}</button>
+                </div>-->
                 <div class="list-group" ng-repeat="note in notes">
-                  <button type="button" class="list-group-item" ng-click="setSelectedNote(note)">{{note.title}}</button>
-                </div>
+                  <div class="list-group-item block-sm-sidenav" ng-click="setSelectedNote(note)">
+                      {{note.title}}
+                  </div>
+                 </div>
+                 
+
 
 
             </div>
@@ -313,13 +320,21 @@
         
     </uib-tab>
       
-    <uib-tab index="2" heading="Quizzes">
-          <div class="container">
+    <uib-tab index="2" heading="Quizzes" >
+          <div class="container" ng-controller="QuizzesCtrl">
           <div class="row row-content">
             <div class="col-xs-12 col-sm-3">
-                <div class="list-group" ng-repeat="deck in decks">
-                  <button type="button" class="list-group-item" ng-click="setSelectedDeck(deck)">{{deck.title}}</button>
-                </div>
+                <!--<div class="list-group" ng-repeat="quiz in quizzes">
+                  <button type="button" class="list-group-item block-sm-sidenav" ng-click="setSelectedQuiz(quiz)">{{quiz.title}}</button>
+                </div>-->
+                
+                <div class="list-group" ng-repeat="quiz in quizzes">
+                   <div class="list-group-item block-sm-sidenav" ng-click="setSelectedQuiz(quiz)">
+                      {{quiz.title}}
+                  </div>
+               </div>
+                  
+                
 
 
             </div>
