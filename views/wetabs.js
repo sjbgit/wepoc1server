@@ -170,8 +170,16 @@ angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap', 'ngResource'])
 
 angular.module('ui.bootstrap.demo').controller('FlashCardsCtrl', function ($scope, $window, testFactory, flashCardFactory, notesFactory, quizFactory) {
   
+  $scope.maxSize = 5;
+  $scope.bigTotalItems = 175;
+  $scope.bigCurrentPage = 1;
+  
+  $scope.totalPages = 5;
+  $scope.currentPage = 1;
+  
+  
   $scope.totalItems = 64;
-  $scope.currentPage = 4;
+  $scope.currentPage = 1;
   
   $scope.notes = [];
   
@@ -182,6 +190,11 @@ query.$promise.then(function(data) {
      console.log($scope.testDecks);
      
      $scope.decks = data;
+     $scope.setSelectedDeck(data[0]);
+     //$scope.bigTotalItems = data.cards.length;
+     //$scope.bigCurrentPage = 1;
+     //$scope.totalItems = 64;
+     
      //$scope.decks.unshift(data);
      // Do whatever when the request is finished
 });
@@ -194,9 +207,7 @@ query.$promise.then(function(data) {
     //$log.log('Page changed to: ' + $scope.currentPage);
   };
 
-  $scope.maxSize = 5;
-  $scope.bigTotalItems = 175;
-  $scope.bigCurrentPage = 1;
+  
 
   $scope.decks = testFactory.get({user: 1});
   $scope.selectedDeck = {};
@@ -208,6 +219,12 @@ query.$promise.then(function(data) {
   $scope.setSelectedDeck = function(deck) {
     $scope.selectedDeck = deck;
     $scope.currentCard = deck.cards && deck.cards.length > 0 ? deck.cards[0] : {};
+    //$scope.bigCurrentPage = 1;
+    $scope.bigTotalItems = deck.cards.length;
+    $scope.totalItems = deck.cards.length;
+    $scope.totalPages = deck.cards.length;
+    $scope.totalItems = deck.cards.length;
+      
   }
   
  
@@ -343,7 +360,7 @@ nquery.$promise.then(function(data) {
   };
   
   for (var i = 0; i < 4; i++) {
-    $scope.addSlide();
+    $scope.addSlide();   
   }
   ////////////////////////////// END CAROUSEL ////////////////////////////////////
   
