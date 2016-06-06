@@ -39,3 +39,27 @@
 .move_down{
     margin-top: 0px;
 }
+
+.legend {
+    text-align: center;
+}
+
+.block-sm-sidenav-shadow {
+    display: block;
+    /*width: 100%;*/
+    box-shadow: 4px 4px 4px rgba(208, 32, 32, .1);
+    border: 1px solid #c4c4c4;
+    background: #fff;
+    border-radius: 3px;
+    padding: 0 5px;
+    margin: 5px auto;
+    text-align: left;
+    padding-left: 14px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    line-height: 40px;
+    transition: .3s;
+    overflow: hidden;
+}
