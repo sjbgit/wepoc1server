@@ -56,6 +56,21 @@ query.$promise.then(function(data) {
     flashCardFactory.update({deckId: deckToSave._id},deckToSave);
   }
   
+  $scope.addCard = function(selectedDeck) {
+    
+    //add card to selected deck
+    //update number of pages
+    //set page to that card's index       
+  }
+  
+  $scope.deleteCard = function(currentCard) {
+    
+    //prompt user to confirm delete 
+    //if yes, set number of pages
+    //set current page either to first page or page just before deleted item
+       
+  }
+  
 
   $scope.decks = testFactory.get({user: 1});
   $scope.selectedDeck = {};
