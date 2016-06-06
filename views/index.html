@@ -76,7 +76,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="textarea">Content</label>
                 <div class="col-sm-10">
-                  <textarea class="form-control" placeholder="Enter Content" id="textarea" name="textarea" rows="12"></textarea>
+                  <textarea class="form-control" ng-model="currentCard.contents[0]" placeholder="Enter Content" id="textarea" name="textarea" rows="12"></textarea>
                   <!-- <p class="help-block">help</p> -->
                 </div>
               </div>
@@ -85,7 +85,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="singlebutton"></label>
                 <div class="text-left col-sm-10">
-                  <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary" aria-label="Single Button">Submit</button>
+                  <button type="submit" id="singlebutton" ng-click="submit(selectedDeck)" name="singlebutton" class="btn btn-primary" aria-label="Single Button">Submit</button>
                   <!-- <p class="help-block">help</p> -->
                 </div>
               </div>

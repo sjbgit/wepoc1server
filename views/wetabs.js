@@ -39,6 +39,12 @@ query.$promise.then(function(data) {
     //$log.log('Page changed to: ' + $scope.currentPage);
   };
 
+
+  $scope.submit = function(deckToSave) {
+    var x = deckToSave;
+    console.log(x);
+    flashCardFactory.update({deckId: deckToSave._id},deckToSave);
+  }
   
 
   $scope.decks = testFactory.get({user: 1});
@@ -305,3 +311,48 @@ angular.module('ui.bootstrap.demo')
         return data;
       }])
 ;//closing semicolon
+
+
+//EXAMPLE NESTED UPDATE
+/*
+.factory('commentFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
+
+        return $resource(baseURL + "dishes/:id/comments/:commentId", {id:"@Id", commentId: "@CommentId"}, {
+            'update': {
+                method: 'PUT'
+            }
+        });
+
+}])
+*/
+
+/*
+ $scope.dish = menuFactory.get({
+            id: $stateParams.id
+        })
+        .$promise.then(
+            function (response) {
+                $scope.dish = response;
+                $scope.showDish = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+        );
+        */
+        
+ /*       
+         $scope.submitComment = function () {
+
+        commentFactory.save({id: $stateParams.id}, $scope.mycomment);
+
+        $state.go($state.current, {}, {reload: true});
+        
+        $scope.commentForm.$setPristine();
+
+        $scope.mycomment = {
+            rating: 5,
+            comment: ""
+        };
+    }
+    */
