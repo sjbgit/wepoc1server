@@ -2,16 +2,32 @@ angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap', 'ngResource'])
 
 angular.module('ui.bootstrap.demo').controller('FlashCardsCtrl', function ($scope, $window, testFactory, flashCardFactory, notesFactory, quizFactory) {
   
-  $scope.maxSize = 5;
-  $scope.bigTotalItems = 175;
-  $scope.bigCurrentPage = 1;
+  // $scope.totalItems = 64;
+  // $scope.currentPage = 4;
+
+  $scope.setPage = function (pageNo) {
+    $scope.currentPage = pageNo;
+  };
+
+  $scope.pageChanged = function() {
+    console.log('Page changed to: ' + $scope.currentPage);
+    $scope.currentCard = $scope.selectedDeck.cards[$scope.currentPage - 1];
+  };
+
+  $scope.maxSize = 0;
+  $scope.totalItems = 0;
+  $scope.currentPage = 0;
   
-  $scope.totalPages = 5;
-  $scope.currentPage = 1;
+  // $scope.maxSize = 5;
+  // $scope.bigTotalItems = 175;
+  // $scope.bigCurrentPage = 1;
+  
+  // $scope.totalPages = 5;
+  // $scope.currentPage = 1;
   
   
-  $scope.totalItems = 64;
-  $scope.currentPage = 1;
+  //$scope.totalItems = 64;
+  //$scope.currentPage = 1;
   
   $scope.notes = [];
   
@@ -31,13 +47,7 @@ query.$promise.then(function(data) {
      // Do whatever when the request is finished
 });
 
-  $scope.setPage = function (pageNo) {
-    $scope.currentPage = pageNo;
-  };
-
-  $scope.pageChanged = function() {
-    //$log.log('Page changed to: ' + $scope.currentPage);
-  };
+ 
 
 
   $scope.submit = function(deckToSave) {
@@ -57,11 +67,13 @@ query.$promise.then(function(data) {
   $scope.setSelectedDeck = function(deck) {
     $scope.selectedDeck = deck;
     $scope.currentCard = deck.cards && deck.cards.length > 0 ? deck.cards[0] : {};
+    $scope.currentPage = 1;
+    $scope.totalItems = deck.cards.length * 10;
     //$scope.bigCurrentPage = 1;
-    $scope.bigTotalItems = deck.cards.length;
-    $scope.totalItems = deck.cards.length;
-    $scope.totalPages = deck.cards.length;
-    $scope.totalItems = deck.cards.length;
+    // $scope.bigTotalItems = deck.cards.length;
+    // $scope.totalItems = deck.cards.length;
+    // $scope.totalPages = deck.cards.length;
+    // $scope.totalItems = deck.cards.length;
       
   }
   

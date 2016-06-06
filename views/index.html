@@ -94,7 +94,9 @@
               <div class="form-group">
                 <label class="control-label col-sm-2"></label>
                 <div class="text-left col-sm-10">
-                    <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>
+                    <!--<uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>-->
+                       <uib-pagination ng-change="pageChanged()" total-items="totalItems" ng-model="currentPage" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>
+
                 </div>
               </div>
 
