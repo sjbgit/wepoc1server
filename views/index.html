@@ -57,7 +57,7 @@
             </div>
             <div class="col-xs-12 col-sm-9 block-sm-sidenav-shadow">
 
-              <form class="form-horizontal">
+              <form class="form-horizontal" name="flashCardForm" novalidate>
               <fieldset>
 
 
@@ -68,19 +68,24 @@
               <legend class="legend">Create or Edit Flash Card</legend>
 
               <!-- Textarea http://getbootstrap.com/css/#textarea -->
-              <div class="form-group">
+              <div class="form-group" ng-class="{ 'has-error' : flashCardForm.flashCardTitle.$invalid && !flashCardForm.flashCardTitle.$pristine }">
                 <label class="control-label col-sm-2" for="textarea">Heading</label>
                 <div class="col-sm-10">
-                  <input class="form-control" ng-model="currentCard.title" placeholder="Enter Card Title" id="textarea" name="textarea" rows="1"></input>
+                  <input class="form-control" ng-model="currentCard.title" placeholder="Enter Card Title" id="textarea" name="flashCardTitle" rows="1" ng-minlength="3" required></input>
+                  <p ng-show="flashCardForm.flashCardTitle.$error.minlength" class="help-block">Title is too short.</p>
+                  <p ng-show="flashCardForm.flashCardTitle.$error.required" class="help-block">Title is required.</p>
                   <!-- <p class="help-block">help</p> -->
                 </div>
+                
               </div>
 
               <!-- Textarea http://getbootstrap.com/css/#textarea -->
-              <div class="form-group">
+              <div class="form-group" ng-class="{ 'has-error' : flashCardForm.flashCardContent.$invalid && !flashCardForm.flashCardContent.$pristine }">
                 <label class="control-label col-sm-2" for="textarea">Content</label>
                 <div class="col-sm-10">
-                  <textarea class="form-control" ng-model="currentCard.contents[0]" placeholder="Enter Content" id="textarea" name="textarea" rows="12"></textarea>
+                  <textarea class="form-control" ng-model="currentCard.contents[0]" placeholder="Enter Content" id="textarea" name="flashCardContent" rows="12"  ng-minlength="3" required></textarea>
+                  <p ng-show="flashCardForm.flashCardContent.$error.minlength" class="help-block">Title is too short.</p>
+                  <p ng-show="flashCardForm.flashCardContent.$error.required" class="help-block">Title is required.</p>
                   <!-- <p class="help-block">help</p> -->
                 </div>
               </div>
@@ -89,9 +94,10 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="singlebutton"></label>
                 <div class="text-left col-sm-10">
-                  <button type="submit" id="singlebutton" ng-click="submit(selectedDeck)" name="singlebutton" class="btn btn-primary" aria-label="Single Button">Submit</button>
-                                  <button type="submit" id="singlebutton" ng-click="deleteCard(currentCard)" name="singlebutton" class="btn btn-danger pull-right" aria-label="Single Button">Delete Card</button>
-                 <button type="submit" id="singlebutton" ng-click="addCard(selectedDeck)" name="singlebutton" class="btn btn-success pull-right" aria-label="Single Button">Add Card</button>
+                  <button type="submit" id="singlebutton" ng-disabled="flashCardForm.$invalid || flashCardForm.$pristine" ng-click="submit(selectedDeck)" name="singlebutton" class="btn btn-primary" aria-label="Single Button">Submit</button>
+                 
+                  <button type="submit" id="singlebutton" ng-click="deleteCard(currentCard)" name="singlebutton" class="btn btn-danger pull-right" aria-label="Single Button">Delete Card</button>
+                  <button type="submit" id="singlebutton" ng-click="addCard(selectedDeck)" name="singlebutton" class="btn btn-success pull-right" aria-label="Single Button">Add Card</button>
 
  
                   <!-- <p class="help-block">help</p> -->
