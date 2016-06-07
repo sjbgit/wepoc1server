@@ -48,6 +48,11 @@ query.$promise.then(function(data) {
 });
 
  
+  $scope.addDeck = function() {
+    
+    //create new deck
+    //set deck to current deck         
+  }
 
 
   $scope.submit = function(deckToSave) {

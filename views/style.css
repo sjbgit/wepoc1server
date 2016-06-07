@@ -42,6 +42,9 @@
 
 .legend {
     text-align: center;
+    background-color: rgba(112, 46, 163, 0.41);
+    border-radius: 5px;
+    
 }
 
 .block-sm-sidenav-shadow {
