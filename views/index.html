@@ -32,37 +32,19 @@
                       {{deck.title}}
                   </div>
                   
-                  <!--<button type="button" class="list-group-item" ng-click="setSelectedDeck(deck)">{{deck.title}}</button>-->
-                  
-                  <!-- <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
-                  <button type="button" class="list-group-item">Morbi leo risus</button>
-                  <button type="button" class="list-group-item">Porta ac consectetur ac</button>
-                  <button type="button" class="list-group-item">Vestibulum at eros</button> -->
-                </div>
+                  </div>
                 
                 <div class="add-to-list">
                     <button type="submit" ng-click="addDeck()" id="singlebutton" name="singlebutton" class="btn btn-success add-to-list" aria-label="Single Button">Add Flashcard Deck</button>
                </div>
 
-             <!--  <div class="list-group" ng-repeat="deck in decks">
-                  <button type="button" class="list-group-item">{{deck.title}}</button>
-              </div> -->
-
-              <!-- <ul class="list-group" ng-repeat="deck in decks">
-                <li class="list-group-item">
-                {{deck.title}}
-                </li>
-              </ul>
-                 -->
             </div>
             <div class="col-xs-12 col-sm-9 block-sm-sidenav-shadow">
 
               <form class="form-horizontal" name="flashCardForm" novalidate>
               <fieldset>
 
-
               <!-- change col-sm-N to reflect how you would like your column spacing (http://getbootstrap.com/css/#forms-control-sizes) -->
-
 
               <!-- Form Name -->
               <legend class="legend">Create or Edit Flash Card</legend>
@@ -99,122 +81,20 @@
                   <button type="submit" id="singlebutton" ng-click="deleteCard(currentCard)" name="singlebutton" class="btn btn-danger pull-right" aria-label="Single Button">Delete Card</button>
                   <button type="submit" id="singlebutton" ng-click="addCard(selectedDeck)" name="singlebutton" class="btn btn-success pull-right" aria-label="Single Button">Add Card</button>
 
- 
                   <!-- <p class="help-block">help</p> -->
                 </div>
               </div>
-              <!--<uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>-->
 
               <div class="form-group">
                 <label class="control-label col-sm-2"></label>
                 <div class="text-left col-sm-10">
-                    <!--<uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>-->
-                       <uib-pagination ng-change="pageChanged()" total-items="totalItems" ng-model="currentPage" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>
+                        <uib-pagination ng-change="pageChanged()" total-items="totalItems" ng-model="currentPage" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>
 
                 </div>
               </div>
 
                </fieldset>
               </form>
-
-             <!--    {{selectedDeck.title}}
-              <carousel interval="myInterval" >
-                <slide ng-repeat="card in selectedDeck.cards" active="card.active">
-                  
-                  <div class="carousel-caption" style="margin: 300px">
-                    <h4>Slide {{card.title}}</h4>
-                  </div>
-                </slide>  
-              </carousel> -->
-
-
-              <!-- <form role="form">
-
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-3 text-right">                
-                            <h3><b>Number of Guests {{selectedDeck.id}}</b></h3>
-                        </div>
-
-                        <div class="col-xs-12 col-sm-9">
-
-                            <p style="padding:10px;"></p>
-                            <div class="form-group">                    
-                                <label class="radio-inline">
-                                    <input type="radio" name="guests" value="1"> 1
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="guests" value="2"> 2
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="guests" value="3"> 3
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="guests" value="4"> 4
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="guests" value="5"> 5
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="guests" value="6"> 6
-                                </label>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-3 text-right">                
-                            <h3><b>Date and Time</b></h3>
-                        </div>
-
-                        <div class="col-xs-12 col-sm-3">
-
-                            <p style="padding:5px;"></p>
-                            <div class="form-group has-feedback">
-                                <input type="text" class="form-control" name="Date" placeholder="Date">
-                                <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
-                            </div>                        
-                        </div>
-
-                        <div class="col-xs-12 col-sm-3 col-sm-offset-1">
-
-                            <p style="padding:5px;"></p>
-                            <div class="form-group has-feedback">
-                                <input type="text" class="form-control" name="Time" placeholder="Time">
-                                <span class="glyphicon glyphicon-time form-control-feedback" aria-hidden="true"></span>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-xs-12 col-sm-3 col-sm-offset-3">
-                            <button type="submit" class="btn btn-primary">Reserve</button>                            
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-xs-12">
-                            <p style="padding:5px;"></p>
-                            <div class="alert alert-warning alert-dismissible" role="alert">
-                              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                              <strong>Warning:</strong> Please <a href="tel:+852-1234-5678">Call</a> us to reserve for more than six guests.
-                            </div>                
-                        </div>
-
-                    </div>
-
-                </form> -->
-                <!-- <div class="list-group">
-                  <button type="button" class="list-group-item">Cras justo odio</button>
-                  <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
-                  <button type="button" class="list-group-item">Morbi leo risus</button>
-                  <button type="button" class="list-group-item">Porta ac consectetur ac</button>
-                  <button type="button" class="list-group-item">Vestibulum at eros</button>
-                </div> -->
             </div>
           </div>
 
@@ -225,10 +105,8 @@
          <div class="container"  ng-controller="NotesCtrl">
           <div class="row row-content">
             <div class="col-xs-12 col-sm-3 ">
-                <!--<div class="list-group" ng-repeat="note in notes">
-                  <button type="button" class="list-group-item block-sm-sidenav"  ng-click="setSelectedNote(note)">{{note.title}}</button>
-                </div>-->
-                <div class="list-group" ng-repeat="note in notes">
+
+               <div class="list-group" ng-repeat="note in notes">
                   <div class="list-group-item block-sm-sidenav" ng-click="setSelectedNote(note)">
                       {{note.title}}
                   </div>
@@ -311,10 +189,7 @@
           <div class="container" ng-controller="QuizzesCtrl">
           <div class="row row-content">
             <div class="col-xs-12 col-sm-3">
-                <!--<div class="list-group" ng-repeat="quiz in quizzes">
-                  <button type="button" class="list-group-item block-sm-sidenav" ng-click="setSelectedQuiz(quiz)">{{quiz.title}}</button>
-                </div>-->
-                
+                 
                 <div class="list-group" ng-repeat="quiz in quizzes">
                    <div class="list-group-item block-sm-sidenav" ng-click="setSelectedQuiz(quiz)">
                       {{quiz.title}}
@@ -324,7 +199,6 @@
                <div class="add-to-list">
                     <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-success add-to-list" aria-label="Single Button">Add Quiz</button>
                </div>
-
                
             </div>
             <div class="col-xs-12 col-sm-9 block-sm-sidenav-shadow">
@@ -334,15 +208,6 @@
 
               <!-- Form Name -->
               <legend class="legend">Create or Edit Quiz</legend>
-
-              <!-- Textarea http://getbootstrap.com/css/#textarea -->
-              <!--<div class="form-group">
-                <label class="control-label col-sm-2" for="textarea">Title</label>
-                <div class="col-sm-10">
-                  <input class="form-control" ng-model="currentQuestion.title" placeholder="Enter Card Title" id="textarea" name="textarea" rows="1"></input>
-                  
-                </div>
-              </div>-->
 
               <!-- Textarea http://getbootstrap.com/css/#textarea -->
               <div class="form-group">
@@ -370,29 +235,9 @@
                     </div> 
                     
                    </div>
-                  <!--
-                    <textarea class="form-control" placeholder="Enter Content" id="textarea" name="textarea" rows="12"></textarea>
-                  -->
-                </div>
+                 </div>
               </div>
-              
-              
-              <!--<div class="form-group">
-                <label class="control-label col-sm-2" for="singlebutton">Note Images</label>
-                <div class="text-left col-sm-10">
-                    
-                    <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-                        <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-                            <img ng-src="{{slide.image}}" style="margin:auto;">
-                            <div class="carousel-caption">
-                            <h4>Slide {{slide.id}}</h4>
-                            <p>{{slide.text}}</p>
-                            </div>
-                        </uib-slide>
-                    </uib-carousel>
-                </div>
-              </div>-->
-
+             
               <!-- Button http://getbootstrap.com/css/#buttons -->
               <div class="form-group">
                 <label class="control-label col-sm-2" for="singlebutton"></label>
@@ -419,42 +264,7 @@
       </div>
     </uib-tab>
   </uib-tabset>
-
-
-        
   <hr />
-
- <!--  Tabbed pills with CSS classes
-  <uib-tabset type="pills">
-    <uib-tab heading="Default Size">Tab 1 content</uib-tab>
-    <uib-tab heading="Small Button" classes="btn-sm">Tab 2 content</uib-tab>
-  </uib-tabset>
-
-  <hr />
-
-  Tabs using nested forms:
-  <form name="outerForm" class="tab-form-demo">
-    <uib-tabset active="activeForm">
-      <uib-tab index="0" heading="Form Tab">
-        <ng-form name="nestedForm">
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" required ng-model="model.name"/>
-          </div>
-        </ng-form>
-      </uib-tab>
-      <uib-tab index="1" heading="Tab One">
-        Some Tab Content
-      </uib-tab>
-      <uib-tab index="2" heading="Tab Two">
-        More Tab Content
-      </uib-tab>
-    </uib-tabset>
-  </form>
-  Model:
-  <pre>{{ model | json }}</pre>
-  Nested Form:
-  <pre>{{ outerForm.nestedForm | json }}</pre> -->
 </div>
   </body>
 </html>

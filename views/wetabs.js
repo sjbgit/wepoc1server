@@ -169,7 +169,7 @@ nquery.$promise.then(function(data) {
      $scope.testNotes = data;
      console.log($scope.testNotes);
      $scope.notes = data;
-     // Do whatever when the request is finished
+     
 });
 
 
@@ -307,9 +307,9 @@ qquery.$promise.then(function(data) {
 
 angular.module('ui.bootstrap.demo')
     //https://devdactic.com/improving-rest-with-ngresource/
-        .constant("test_baseURL", 'http://jsonplaceholder.typicode.com/users/:user') //"http://localhost:3000/")
-        .constant("baseURL", 'http://westudypoc01.azurewebsites.net/') //http://localhost:3000/')
-        //.constant("baseURL", 'http://localhost:3000/')
+        .constant("test_baseURL", 'http://jsonplaceholder.typicode.com/users/:user') 
+        //.constant("baseURL", 'http://westudypoc01.azurewebsites.net/') 
+        .constant("baseURL", 'http://localhost:3000/')
         .factory('testFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
           var data = $resource('http://jsonplaceholder.typicode.com/users/:user', {user: '@user'}, {
           update:{
