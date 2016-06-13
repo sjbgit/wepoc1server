@@ -13,7 +13,7 @@ var users = require('./routes/users');
 
 var config = require('./config');
 
-var url = 'mongodb://test:test@ds011933.mlab.com:11933/confusion101'; //'mongodb://localhost:27017/conFusion';
+var url = 'mongodb://test:test@ds011933.mlab.com:11933/confusion101';
 mongoose.connect(url);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -25,11 +25,6 @@ db.once('open', function () {
 //Routes
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var dishRouter = require('./routes/dishRouter');
-var promoRouter = require('./routes/promoRouter');
-var leaderRouter = require('./routes/leaderRouter');
-var favoritesRouter = require('./routes/favoritesRouter');
-
 var flashCardRouter = require('./routes/flashCardRouter');
 var notesRouter = require('./routes/notesRouter');
 var quizRouter = require('./routes/quizRouter');
@@ -67,11 +62,6 @@ app.use('/', routes);
 app.use('/users', users);
 
 //API Routes
-app.use('/dishes',dishRouter);
-app.use('/promotions',promoRouter);
-app.use('/leadership',leaderRouter);
-app.use('/favorites',favoritesRouter);
-
 app.use('/flashCards',flashCardRouter);
 app.use('/notes',notesRouter);
 app.use('/quizzes',quizRouter);
