@@ -1,10 +1,7 @@
 angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap', 'ngResource']);
 
-angular.module('ui.bootstrap.demo').controller('FlashCardsCtrl', function ($scope, $window, testFactory, flashCardFactory, notesFactory, quizFactory) {
+angular.module('ui.bootstrap.demo').controller('FlashCardsCtrl', function ($scope, $window, flashCardFactory) {
   
-  // $scope.totalItems = 64;
-  // $scope.currentPage = 4;
-
   $scope.setPage = function (pageNo) {
     $scope.currentPage = pageNo;
   };
@@ -17,21 +14,8 @@ angular.module('ui.bootstrap.demo').controller('FlashCardsCtrl', function ($scop
   $scope.maxSize = 0;
   $scope.totalItems = 0;
   $scope.currentPage = 0;
+
   
-  // $scope.maxSize = 5;
-  // $scope.bigTotalItems = 175;
-  // $scope.bigCurrentPage = 1;
-  
-  // $scope.totalPages = 5;
-  // $scope.currentPage = 1;
-  
-  
-  //$scope.totalItems = 64;
-  //$scope.currentPage = 1;
-  
-  $scope.notes = [];
-  
-  //$scope.testDecks = flashCardFactory.query();
 var query = flashCardFactory.query();
 query.$promise.then(function(data) {
      $scope.testDecks = data;
@@ -39,12 +23,6 @@ query.$promise.then(function(data) {
      
      $scope.decks = data;
      $scope.setSelectedDeck(data[0]);
-     //$scope.bigTotalItems = data.cards.length;
-     //$scope.bigCurrentPage = 1;
-     //$scope.totalItems = 64;
-     
-     //$scope.decks.unshift(data);
-     // Do whatever when the request is finished
 });
 
  
@@ -77,11 +55,9 @@ query.$promise.then(function(data) {
   }
   
 
-  $scope.decks = testFactory.get({user: 1});
+  $scope.decks = []; 
   $scope.selectedDeck = {};
   $scope.currentCard = {};
-
-  $scope.myInterval = 3000;
 
 
   $scope.setSelectedDeck = function(deck) {
@@ -89,71 +65,12 @@ query.$promise.then(function(data) {
     $scope.currentCard = deck.cards && deck.cards.length > 0 ? deck.cards[0] : {};
     $scope.currentPage = 1;
     $scope.totalItems = deck.cards.length * 10;
-    //$scope.bigCurrentPage = 1;
-    // $scope.bigTotalItems = deck.cards.length;
-    // $scope.totalItems = deck.cards.length;
-    // $scope.totalPages = deck.cards.length;
-    // $scope.totalItems = deck.cards.length;
-      
+    
   }
   
- 
-  $scope.decks = [
-  {
-    title: "this is a test title1", id: 1, cards: [
-        {
-          title: "first card title",
-          contents: [ "first"]
-        },
-        {
-          title: "second card title",
-          contents: [ "second"]
-        },
-        {
-          title: "third card title",
-          contents: [ "third"]
-        }
-
-
-      ]
-  },
-  {
-    title: "this is a test title2", id: 2
-  },
-  {
-    title: "this is a test title3", id: 3
-  },
-  {
-    title: "this is a test title4", id: 4
-  },
-  {
-    title: "this is a test title5", id: 5
-  },
-  {
-    title: "this is a test title6", id: 6
-  },
-  {
-    title: "this is a test title6", id: 7
-  },
-  {
-    title: "this is a test title8", id: 8
-  }
-
-  ];
-
   $scope.cardIndex = 0;
 
   $scope.selectedDeck = $scope.decks[0];
-
-  $scope.alertMe = function() {
-    setTimeout(function() {
-      $window.alert('You\'ve selected the alert tab!');
-    });
-  };
-
-  $scope.model = {
-    name: 'Tabs'
-  };
 
 });
 
